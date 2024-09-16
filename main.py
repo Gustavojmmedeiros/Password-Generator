@@ -10,6 +10,7 @@ quantity = int(input("Deseja gerar quantas senhas? (mínimo de 1 e máximo de 5)
 
 print("Gerando senhas...")
 
+
 def generate_password(length, quantity):
     passwords_list = []
 
