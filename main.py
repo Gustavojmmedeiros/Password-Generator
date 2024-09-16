@@ -18,6 +18,7 @@ def generate_password(length, quantity):
         passwords_list.append(password)
     return passwords_list
 
+
 passwords = generate_password(length, quantity)
 
 for password in passwords:
