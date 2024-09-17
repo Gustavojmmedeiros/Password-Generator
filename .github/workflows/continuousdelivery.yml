@@ -16,4 +16,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: projeto-password-generator
-          path: $GITHUB_WORKSPACE/Password-Generator/
+          path: /home/runner/work/Password-Generator/Password-Generator
