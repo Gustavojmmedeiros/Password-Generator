@@ -4,9 +4,15 @@ print("---Gerador de senhas---")
 
 CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHYJKLMNOPQRSTUVWXYZ!@#$%&*().,?0123456789"
 
-length = int(input("Tamanho da senha (mínimo de 6 caracteres): "))
+try: 
+    length = int(input("Tamanho da senha (mínimo de 6 caracteres): "))
+except EOFError:
+    length = 6
 
-quantity = int(input("Deseja gerar quantas senhas? (mínimo de 1 e máximo de 5): "))
+try:
+    quantity = int(input("Deseja gerar quantas senhas? (mínimo de 1 e máximo de 5): "))
+except EOFError:
+    quantity = 1
 
 print("Gerando senhas...")
 
