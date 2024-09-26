@@ -1,19 +1,21 @@
 name: Discord
 
-on:
-  - push 
+on: 
+  - pull_request
 
 jobs:
   discord:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v4.1.7
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
       - name: Send Discord notification
         uses: stegzilla/discord-notify@v2
         with:
-            webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-            title: New PR opened
-            message: "**${{ github.event.push.title }}**\n**Creator:** ${{ github.event.push.user.login }}\n${{ github.event.push.html_url }}"
-            include_image: true
-            avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-            username: GitHub PR Notifier
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          title: New PR opened
+          essage: "**${{ github.event.pull_request.title }}**\n**Creator:** ${{ github.event.pull_request.user.login }}\n${{ github.event.pull_request.html_url }}"
+          include_image: true
+          avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+          username: GitHub PR Notifier
