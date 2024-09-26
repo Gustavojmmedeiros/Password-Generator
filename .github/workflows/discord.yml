@@ -1,19 +1,16 @@
 name: Discord
+on: 
+  - push
 
-on:
-  - push 
-
-jobs:
+jobs: 
   discord:
-      runs-on: ubuntu-latest
-      steps:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v4.1.7
-      - name: Send Discord notification
-        uses: stegzilla/discord-notify@v2
+      - name: Run Discord Webhook
+        uses: Sniddl/discord-commits@v1.6
         with:
-            webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-            title: New PR opened
-            message: "**${{ github.event.push.title }}**\n**Creator:** ${{ github.event.push.user.login }}\n${{ github.event.push.html_url }}"
-            include_image: true
-            avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-            username: GitHub PR Notifier
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          template: "avatar-with-link"
+          include-extras: true
+          last-commit-only: true
