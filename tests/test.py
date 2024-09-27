@@ -1,5 +1,4 @@
 import unittest
-from unittest.mock import patch
 from src.main import CHARS, length_input, quantity_input, generate_password
 
 class TestInput(unittest.TestCase):
